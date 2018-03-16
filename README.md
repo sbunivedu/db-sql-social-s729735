@@ -27,27 +27,83 @@ directed red edges indicate that one student likes another student.
 
 ## Write queries
 1. Find the names of all students who are friends with someone named Gabriel.
-1. Find all students who do not appear in the Likes table (as a student who
+```
+Expected output:
++-----------+
+| name      |
++-----------+
+| Jordan    |
+| Alexis    |
+| Cassandra |
+| Andrew    |
+| Jessica   |
++-----------+
+```
+2. Find all students who do not appear in the Likes table (as a student who
   likes or is liked) and return their names and grades.
-1. (*) Find the name and grade of all students who are liked by more than one
+```
+Expected output:
++---------+-------+
+| name    | grade |
++---------+-------+
+| Jordan  |     9 |
+| Tiffany |     9 |
+| Logan   |    12 |
++---------+-------+
+3 rows in set (0.01 sec)
+```
+3. (*) Find the name and grade of all students who are liked by more than one
   other student.
-1. (*) For every student who likes someone 2 or more
+```
+Expected output:
++-----------+-------+
+| name      | grade |
++-----------+-------+
+| Cassandra |     9 |
+| Kris      |    10 |
++-----------+-------+
+2 rows in set (0.00 sec)
+```
+4. (*) For every student who likes someone 2 or more
   grades younger than themselves, return that student's name and grade, and the
-  name and grade of the student they like.
-1. (**) Find names and grades of students who only have friends in the same
+  name and grade of the student they like. Note that your conditions in the
+  where clause can include any arithmetic expressions, e.g. (a-b > 10) AND
+  (c < d*2).
+```
+Expected output:
++------+-------+-------+-------+
+| name | grade | name  | grade |
++------+-------+-------+-------+
+| John |    12 | Haley |    10 |
++------+-------+-------+-------+
+1 row in set (0.00 sec)
+```
+5. (**) Find names and grades of students who only have friends in the same
   grade. Return the result sorted by grade, then by name within each grade.
   (what about students with no friends?)
-1. (***) For each student A who likes a student B where the two are not friends,
+6. (***) For each student A who likes a student B where the two are not friends,
   find if they have a friend C in common (who can introduce them!). For all
   such trios, return the name and grade of A, B, and C.
-1. (**) Find the difference between the number of students in the school and
+7. (**) Find the difference between the number of students in the school and
   the number of different first names.
-1. (**) What is the average number of friends per student? (Your result should
-  be just one number.)
-1. (***) Find the number of students who are either friends with Cassandra or
+8. (**) What is the average number of friends per student? (Your result should
+  be just one number.) Hint: consider divide-and-conquer in two steps:
+  Find the number of friends of each student, which should results in a list
+  of numbers. Find the average of the list of numbers from the previous step.
+```
+Expected output:
++-------------------------+
+| avg friends per student |
++-------------------------+
+|                  2.5000 |
++-------------------------+
+1 row in set (0.00 sec)
+
+```
+9. (***) Find the number of students who are either friends with Cassandra or
   are friends of friends of Cassandra. Do not count Cassandra, even though
   technically she is a friend of a friend.
-1. (***) Find the name and grade of the student(s) with the greatest number of
+10. (***) Find the name and grade of the student(s) with the greatest number of
   friends.
 
 ## Setup MySQL on Cloud 9
